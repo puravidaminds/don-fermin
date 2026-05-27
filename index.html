@@ -911,6 +911,50 @@
       .gallery-item:nth-child(4) { grid-column: span 1; }
     }
 
+    /* ===== FACEBOOK ===== */
+    .facebook {
+      background: var(--cream);
+    }
+
+    .facebook-embed-wrapper {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 520px;
+      position: relative;
+    }
+
+    .facebook-embed-wrapper::before {
+      content: '⏳ Cargando publicación de Facebook...';
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--slate-400);
+      font-size: 0.9rem;
+      font-weight: 500;
+      pointer-events: none;
+      opacity: 0.6;
+      z-index: 1;
+    }
+
+    .facebook-embed-wrapper .fb-page {
+      max-width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    @media (max-width: 600px) {
+      .facebook-embed-wrapper {
+        margin-top: 32px;
+      }
+    }
+
     /* ===== LOCATION & CONTACT ===== */
     .location {
       background: var(--warm-white);
@@ -1307,6 +1351,12 @@
     <div class="intro-loader-bar"><div class="intro-loader-bar-fill"></div></div>
   </div>
 
+  <!-- ===== FACEBOOK SDK (must be first) ===== -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v22.0">
+  </script>
+
   <!-- ===== SKIP TO CONTENT ===== -->
   <a href="#main-content" class="skip-link">Saltar al contenido</a>
 
@@ -1321,6 +1371,7 @@
         <li><a href="#sabor" class="nav-link">Nuestra Historia</a></li>
         <li><a href="#productos" class="nav-link">Productos</a></li>
         <li><a href="#galeria" class="nav-link">Galería</a></li>
+        <li><a href="#facebook" class="nav-link">Facebook</a></li>
         <li><a href="#ubicacion" class="nav-link">Ubicación</a></li>
         <li><a href="#pedidos" class="nav-link nav-cta">📞 Ordene Ya</a></li>
       </ul>
@@ -1388,12 +1439,12 @@
           <div class="sabor-visual reveal">
             <div class="sabor-image-block">
               <img
-                src="https://images.unsplash.com/photo-1512429234305-12fe5b0b0f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Paisaje de Costa Rica con palmeras y montañas"
+                src="facebook-photos/photo-0.jpg"
+                alt="Chicharrones Don Fermín — foto de perfil"
                 loading="lazy"
               />
               <div class="sabor-image-overlay">
-                <span>🌋</span> Puriscal · Corazón de Costa Rica
+                <span>🐷</span> Don Fermín · Tradición Puriscaleña
               </div>
             </div>
           </div>
@@ -1470,43 +1521,72 @@
         <div class="gallery-grid">
           <div class="gallery-item reveal reveal-delay-1">
             <img
-              src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              alt="Chicharrones dorados y crujientes"
+              src="facebook-photos/photo-1.jpg"
+              alt="Chicharrones Don Fermín"
               loading="lazy"
             />
-            <div class="gallery-label">🥓 Chicharrones Dorados</div>
+            <div class="gallery-label">🐷 Don Fermín</div>
           </div>
           <div class="gallery-item reveal reveal-delay-2">
             <img
-              src="https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-              alt="Chorizo artesanal a la parrilla"
+              src="facebook-photos/photo-2.jpg"
+              alt="Producto artesanal Don Fermín"
               loading="lazy"
             />
-            <div class="gallery-label">🌭 Chorizo Artesanal</div>
+            <div class="gallery-label">🥓 Sabor Puriscaleño</div>
           </div>
           <div class="gallery-item reveal reveal-delay-2">
             <img
-              src="https://images.unsplash.com/photo-1587574293340-e0011c4e8ecf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-              alt="Montañas de Costa Rica"
+              src="facebook-photos/photo-3.jpg"
+              alt="Chicharrones Don Fermín"
               loading="lazy"
             />
-            <div class="gallery-label">🌋 Puriscal</div>
+            <div class="gallery-label">🔥 Tradición</div>
           </div>
           <div class="gallery-item reveal reveal-delay-3">
             <img
-              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              alt="Preparación artesanal de alimentos"
+              src="facebook-photos/photo-4.jpg"
+              alt="Productos Don Fermín"
               loading="lazy"
             />
-            <div class="gallery-label">👨‍🍳 Preparación Tradicional</div>
+            <div class="gallery-label">🇨🇷 Hecho en Puriscal</div>
           </div>
           <div class="gallery-item reveal reveal-delay-3">
             <img
-              src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-              alt="Comida costarricense tradicional"
+              src="facebook-photos/photo-5.jpg"
+              alt="Chicharrones Don Fermín artesanales"
               loading="lazy"
             />
-            <div class="gallery-label">🇨🇷 Sabor Tico</div>
+            <div class="gallery-label">⭐ Artesanales</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FACEBOOK ===== -->
+    <section class="facebook" id="facebook">
+      <div class="container">
+        <div class="text-center reveal">
+          <span class="section-label">Síganos</span>
+          <h2 class="section-title">Visite Nuestra Página<br />de Facebook</h2>
+          <p class="section-subtitle mx-auto">
+            Síganos para estar al tanto de nuestras promociones, horarios y el día a día 
+            de Chicharrones Don Fermín en Puriscal.
+          </p>
+        </div>
+        <div class="facebook-embed-wrapper reveal reveal-delay-1">
+          <div class="fb-page"
+            data-href="https://www.facebook.com/ChicharronesDonFermin/"
+            data-tabs="timeline"
+            data-width="500"
+            data-height="700"
+            data-small-header="false"
+            data-adapt-container-width="true"
+            data-hide-cover="false"
+            data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/ChicharronesDonFermin/" class="fb-xfbml-parse-ignore">
+              <a href="https://www.facebook.com/ChicharronesDonFermin/">Chicharrones Don Fermín</a>
+            </blockquote>
           </div>
         </div>
       </div>
@@ -1624,6 +1704,7 @@
             <li><a href="#sabor">Nuestra Historia</a></li>
             <li><a href="#productos">Productos</a></li>
             <li><a href="#galeria">Galería</a></li>
+            <li><a href="#facebook">Facebook</a></li>
             <li><a href="#ubicacion">Ubicación</a></li>
           </ul>
         </div>
